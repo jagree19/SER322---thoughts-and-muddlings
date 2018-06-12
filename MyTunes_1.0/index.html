@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyTunes 1.0</title>
+  </head>
+  <body>
+    <h1>Links that will simply show the contents of the tables</h1><br />
+    <a href="db_controller.php?sqlquery=SELECT * FROM Albums;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#4CAF50">Get Albums</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT * FROM Songs;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#4CAF50">Get Songs</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT * FROM Publishers;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#4CAF50">Get Publishers</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT * FROM Musicians;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#4CAF50">Get Musicians</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT * FROM Bands;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#4CAF50">Get Bands</button>
+    </a><br />
+    <!-- <a href="dynaphpget.php?sqlquery=SELECT * FROM Games;">Get Games</a><br />
+    <a href="dynaphpget.php?sqlquery=SELECT * FROM Players;">Get Players</a><br />
+    <a href="dynaphpget.php?sqlquery=SELECT * FROM Teams;">Get Teams</a><br /> -->
+    <h1>Links that will run custom queries</h1><br />
+    <a href="db_controller.php?sqlquery=SELECT SongID,Title,ReleaseDate FROM Songs, Albums_has_Songs WHERE Albums_Bands_BandID = 1 AND SongID = Songs_SongID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Songs By Alice in Chains</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT SongID,Title,ReleaseDate FROM Songs, Albums_has_Songs WHERE Albums_Bands_BandID = 2 AND SongID = Songs_SongID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Songs By Mad Season</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT SongID,Title,ReleaseDate FROM Songs, Albums_has_Songs WHERE Albums_AlbumID = 2 AND SongID = Songs_SongID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Songs on Dirt</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT SongID,Title,ReleaseDate FROM Songs, Albums_has_Songs WHERE Albums_AlbumID = 1 AND SongID = Songs_SongID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Songs on Above</button>
+    </a><br />
+    <a href="db_controller.php?sqlquery=SELECT MusicianID,Name,Instrument,StartDate,EndDate FROM Musicians,Bands,Musicians_has_Bands WHERE BandName = 'Mad Season'
+                AND MusicianID = Musicians_MusicianID AND BandID = Bands_BandID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Members of Mad Season</button>
+    </a>
+    <a href="db_controller.php?sqlquery=SELECT MusicianID,Name,Instrument,StartDate,EndDate FROM Musicians,Bands,Musicians_has_Bands WHERE BandName = 'Alice In Chains'
+                AND MusicianID = Musicians_MusicianID AND BandID = Bands_BandID;">
+      <button type="button" style="font-size:20px;height:200px;width:200px;background-color:#008CBA">Members of Alice In Chains</button>
+    </a>
+  </body>
+  </html>
