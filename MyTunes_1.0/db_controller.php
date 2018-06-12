@@ -14,8 +14,8 @@ if(isset($_GET["sqlquery"])) {
 }
 
 $host = '127.0.0.1'; //host address
-$user = 'root'; //change to user name for database
-$pass = '2shoes22'; //change to password for database
+$user = '***'; //change to user name for database
+$pass = '***'; //change to password for database
 $dbName = 'MyTunes1.0'; // change to database name
 
 //create connection
