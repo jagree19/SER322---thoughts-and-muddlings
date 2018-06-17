@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a New Album</title>
+</head>
+<body>
+  <form action = 'insertAlbum.php' method = 'post'>
+    <p>
+      <label for='AlbumName'>Album Name: </label>
+      <input type='text' name='album_name' id='AlbumName'>
+    </p>
+    <p>
+      <label for='ReleaseDate'>Release Date: </label>
+      <input type='text' name='release_date' id='ReleaseDate'>
+    </p>
+    <p>
+      <lablel>Select Publisher: </label>
+      <select id="Publisher" name="publisher_id">
+        <?php
+        $host = '127.0.0.1'; //host address
+        $user = 'tester'; //change to user name for database
+        $pass = '1234outfd'; //change to password for database
+        $dbName = 'MyTunes1.0'; // change to database name
+
+        //create connection
+        $connection = mysqli_connect($host, $user, $pass, $dbName);
+
+        //test for failure
+        if(mysqli_connect_errno()) {
+          die("connection failed: "
+            . mysqli_connect_error()
+            . " (" . mysqli_connect_errno()
+            . ")");
+        }
+
+        //get results from database
+        $result = mysqli_query($connection,"SELECT PublisherName,PublisherID FROM Publishers");
+        while($row=mysqli_fetch_array($result))
+        {
+          unset($id, $name);
+          $id = $row['PublisherID'];
+          $name = $row['PublisherName'];
+          echo '<option value="'.$id.'">'.$name.'</option>';
+        }
+        ?>
+      </select>
+    </p>
+    <p>
+      <label>Select Band: </label>
+      <select id="Band" name="band_id">
+        <?php
+        $host = '127.0.0.1'; //host address
+        $user = 'tester'; //change to user name for database
+        $pass = '1234outfd'; //change to password for database
+        $dbName = 'MyTunes1.0'; // change to database name
+
+        //create connection
+        $connection = mysqli_connect($host, $user, $pass, $dbName);
+
+        //test for failure
+        if(mysqli_connect_errno()) {
+          die("connection failed: "
+            . mysqli_connect_error()
+            . " (" . mysqli_connect_errno()
+            . ")");
+        }
+
+        //get results from database
+        $result = mysqli_query($connection,"SELECT BandName,BandID FROM Bands");
+        while($row=mysqli_fetch_array($result))
+        {
+          unset($id, $name);
+          $id = $row['BandID'];
+          $name = $row['BandName'];
+          echo '<option value="'.$id.'">'.$name.'</option>';
+        }
+        ?>
+      </select>
+    </p>
+    <input type='submit' value='Submit'>
+  </form>
+</body>
+</html>
